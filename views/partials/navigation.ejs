@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+		
+	<div class = "logo-style">
+ <img src= "/uploads/logo.png" class= "align-self-start rounded-circle logo mr-1" width= "30px" />
+    <a class="navbar-brand" href="/"><%= process.env.APP_NAME %></a>
+	</div>
+		<div>
+
+	<% if (isLoggedIn) { %>
+		<div class="btn-group dropdown">
+  <a href= "#" class="dropdown-menu-left" data-toggle="dropdown" aria-expanded="false">
+      <img src= "<%= user.profilePics %>" class= "align-self-start mr-3 rounded-circle" width= "30px" />
+  </a>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+		<%- include('./dropdwon.ejs') %>
+  </div>
+</div>
+ 
+		        <% }  %>
+
+			
+    <a href= "#"
+      class="btn "
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+ <img src= "/uploads/logo.png" class= "align-self-start rounded-circle logo" width= "30px" />
+    </a>
+						</div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/explorer" class="nav-link nav-url-link "><span class= "ml-1" >Explorer</span></a>
+        </li>
+        <% if (isLoggedIn) { %>
+        <li class="nav-item">
+          <a class="nav-link nav-url-link" href="/dashboard"><span class= "ml-1" >Dashboard</span></a>
+        </li>
+					
+        <% } else { %>
+        <li class="nav-item">
+			<div class="btn-group dropdown">
+          <a class="nav-link nav-url-link" href= "#" class="dropdown-menu-left" data-toggle="dropdown" aria-expanded="false"><span class= "ml-1" >Login</span>
+		<div class="dropdown-menu">
+
+
+
+		</div>
+					
+					</a>
+				
+			</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-url-link" href="/auth/signup"><span class= "ml-1" >Signup</span></a>
+        </li>
+        <% } %>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="term"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+<script>
+  // adding active class to the active route
+  const current = location.pathname;
+  const navLinks = document.querySelectorAll(".nav-url-link");
+  [...navLinks].forEach((link) => {
+    link.classList.remove('active')
+    link.classList.remove('active-color')
+
+    if (
+      (current.includes(link.getAttribute("href")) &&
+        link.getAttribute("href") !== "/") ||
+      (link.getAttribute("href") === "/" && current === "/")
+    ) {
+      link.classList.add('active')
+			link.classList.add('active-style')
+    }
+  });
+</script>
+
+					
