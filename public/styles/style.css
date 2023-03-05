@@ -3,10 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-h1, h2, h3, h4, h5, h6, p, strong, small {
+h1, h2, h3, h4, h5, h6, p, strong, small, label, span, section, div, button {
 	color: #fafafa;
 }
-
+a {
+	color : orangered;
+}
 body {
   display: grid;
   grid-template-columns: 1fr;
@@ -19,6 +21,7 @@ body {
 .card{
 	background:  #101357;
 }
+
 footer {
   padding: 20px 0;
   /* background-color: #222; */
@@ -26,10 +29,11 @@ footer {
   text-align: center;
 }
 .btn-secondary{
-	background:linear-gradient(red, orange);;
+	background:linear-gradient(red, orange);
 }
+
 .btn-primary{
-	background:linear-gradient(orangered, darkred);;
+	background:linear-gradient(orangered, darkred);
 }
 footer p {
   margin: 0;
@@ -74,4 +78,7 @@ footer p {
   to {
     transform: rotate(360deg);
   }
+}
+.dropdown-menu{
+		background:linear-gradient(whitesmoke, orchid);
 }

@@ -10,7 +10,7 @@
      <% } else { %>
       <% posts.map(post => { %> 
           <div class="card card-body my-3">
-            <a href="/explorer/<%= post._id %> " style="color: #222;">
+            <a href="/explorer/<%= post._id %> " >
               <%= post.title  %>
               <p><%= truncate(post.body) %> </p> 
             </a>

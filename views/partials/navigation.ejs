@@ -4,21 +4,19 @@
 	<div class = "logo-style">
  <img src= "/uploads/logo.png" class= "align-self-start rounded-circle logo mr-1" width= "30px" />
     <a class="navbar-brand" href="/"><%= process.env.APP_NAME %></a>
-	</div>
-		<div>
 
 	<% if (isLoggedIn) { %>
-		<div class="btn-group dropdown">
-  <a href= "#" class="dropdown-menu-left" data-toggle="dropdown" aria-expanded="false">
+		<div class="btn-group dropdown" id= "userAvatar">
+  <a href= "#" class="dropdown-menu-right" data-toggle="dropdown" aria-expanded="false">
       <img src= "<%= user.profilePics %>" class= "align-self-start mr-3 rounded-circle" width= "30px" />
   </a>
   <div class="dropdown-menu">
     <!-- Dropdown menu links -->
 		<%- include('./dropdwon.ejs') %>
   </div>
-</div>
- 
+		</div>
 		        <% }  %>
+	</div>
 
 			
     <a href= "#"
@@ -30,8 +28,7 @@
       aria-label="Toggle navigation"
     >
  <img src= "/uploads/logo.png" class= "align-self-start rounded-circle logo" width= "30px" />
-    </a>
-						</div>
+		</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -44,17 +41,7 @@
 					
         <% } else { %>
         <li class="nav-item">
-			<div class="btn-group dropdown">
-          <a class="nav-link nav-url-link" href= "#" class="dropdown-menu-left" data-toggle="dropdown" aria-expanded="false"><span class= "ml-1" >Login</span>
-		<div class="dropdown-menu">
-
-
-
-		</div>
-					
-					</a>
-				
-			</div>
+          <a class="nav-link nav-url-link" href="/auth/login"><span class= "ml-1" >Login</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-url-link" href="/auth/signup"><span class= "ml-1" >Signup</span></a>
